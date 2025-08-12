@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafiullah's Profile</title>
+  <style>
+    :root {
+      --primary: #FF7E33;
+      --secondary: #FFB347;
+      --accent: #FFD166;
+      --light: #FFF3E0;
+      --dark: #3E2723;
+      --text: #5D4037;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--light), #FFECB3);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMTI2LDUxLDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+') repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      display: inline-block;
+    }
+
+    .title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 126, 51, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, var(--primary), var(--accent), var(--secondary));
+    }
+
+    .profile-img-container {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      padding: 5px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      position: relative;
+      box-shadow: 0 4px 15px rgba(255, 126, 51, 0.4);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .name {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+      position: relative;
+    }
+
+    .name::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .title-text {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 179, 71, 0.1);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      position: relative;
+    }
+
+    .quote::before, .quote::after {
+      content: '"';
+      font-size: 2rem;
+      color: var(--accent);
+      position: absolute;
+      opacity: 0.3;
+    }
+
+    .quote::before {
+      top: 0;
+      left: 10px;
+    }
+
+    .quote::after {
+      bottom: -20px;
+      right: 10px;
+    }
+
+    .bio {
+      text-align: left;
+      margin: 1.5rem 0;
+      line-height: 1.6;
+    }
+
+    .follow-text {
+      margin: 1.5rem 0 1rem;
+      font-weight: 500;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(255, 126, 51, 0.3);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 126, 51, 0.4);
+    }
+
+    .social-btn i {
+      font-size: 1.2rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      min-width: 100px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.8;
+    }
+
+    .contact-form {
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 126, 51, 0.2);
+    }
+
+    .submit-btn {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(255, 126, 51, 0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 126, 51, 0.4);
+    }
+
+    .message {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .success {
+      background-color: rgba(46, 204, 113, 0.2);
+      color: #27ae60;
+      border: 1px solid #2ecc71;
+    }
+
+    .error {
+      background-color: rgba(231, 76, 60, 0.2);
+      color: #c0392b;
+      border: 1px solid #e74c3c;
+    }
+
+    .hobbies {
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .hobbies-title {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .hobby-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hobby-item {
+      background: rgba(255, 179, 71, 0.2);
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2.2rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+      
+      .social-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .social-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Animation */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <h1 class="title">About Me</h1>
+
+  <div class="card">
+    <div class="profile-img-container floating">
+      <!-- Placeholder image encoded as base64 -->
+      <img src="./rafiimg.png" alt="Profile Picture" class="profile-img">
+    </div>
+    
+    <h2 class="name">MOHAMMED RAFIULLAH R</h2>
+    <p class="title-text">Full Stack Developer | Creative Thinker</p>
+    
+    <p class="quote">"Quiet minds build loud legacies."</p>
+    
+    <div class="bio">
+      <p>Hello! I'm a passionate developer with expertise in web technologies. I believe in creating solutions that are not just functional but also delightful to use. When I'm not coding, you can find me exploring new technologies or contributing to open source projects.</p>
+    </div>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number" id="project-count">50</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="experience-years">5</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="happy-clients">100+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+    </div>
+    
+    <div class="hobbies">
+      <p class="hobbies-title">My Interests</p>
+      <div class="hobby-list">
+        <span class="hobby-item">Web Development</span>
+        <span class="hobby-item">UI/UX Design</span>
+        <span class="hobby-item">Photography</span>
+        <span class="hobby-item">Travel</span>
+        <span class="hobby-item">Reading</span>
+      </div>
+    </div>
+    
+    <p class="follow-text">Connect with me on</p>
+    <div class="social-buttons">
+      <button class="social-btn" onclick="openSocial('instagram')">
+        <i class="fab fa-instagram"></i> Instagram
+      </button>
+      <button class="social-btn" onclick="openSocial('linkedin')">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </button>
+      <button class="social-btn" onclick="openSocial('facebook')">
+        <i class="fab fa-facebook"></i> Facebook
+      </button>
+      <button class="social-btn" onclick="openSocial('twitter')">
+        <i class="fab fa-twitter"></i> Twitter
+      </button>
+    </div>
+    
+    <div class="contact-form">
+      <h3 style="margin: 2rem 0 1rem; color: var(--primary);">Get in Touch</h3>
+      <div class="form-group">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" id="name" class="form-input" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Your Email</label>
+        <input type="email" id="email" class="form-input" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea id="message" class="form-input" rows="4" placeholder="Enter your message"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitForm()">Send Message</button>
+      <div id="form-message" class="message"></div>
+    </div>
+  </div>
+
+  <script>
+    // Simulated backend functionality
+    const socialLinks = {
+      instagram: 'https://instagram.com',
+      linkedin: 'https://linkedin.com',
+      facebook: 'https://facebook.com',
+      twitter: 'https://twitter.com'
+    };
+    
+    function openSocial(platform) {
+      // In a real app, this would be your actual social media links
+      alert(`In a real application, this would redirect to your ${platform} profile.`);
+      // window.open(socialLinks[platform], '_blank');
+    }
+    
+    function submitForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const messageElement = document.getElementById('form-message');
+      
+      // Simple validation
+      if (!name || !email || !message) {
+        messageElement.textContent = 'Please fill in all fields.';
+        messageElement.className = 'message error';
+        messageElement.style.display = 'block';
+        return;
+      }
+      
+      // Simulate form submission
+      setTimeout(() => {
+        messageElement.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+        messageElement.className = 'message success';
+        messageElement.style.display = 'block';
+        
+        // Reset form
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          messageElement.style.display = 'none';
+        }, 5000);
+      }, 1000);
+    }
+    
+    // Animate stats counting
+    function animateValue(id, start, end, duration) {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start + (id === 'project-count' ? '+' : ''));
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+    
+    // Start animations when page loads
+    window.onload = function() {
+      animateValue('project-count', 0, 50, 2000);
+      animateValue('experience-years', 0, 5, 2000);
+      animateValue('happy-clients', 0, 100, 2000);
+    };
+  </script>
+</body>
+</html>
