@@ -867,7 +867,7 @@ section {
 }
 
 .contact-form button {
-    height: 60px;
+    height: 100px;
     align-self: flex-start;
     cursor: pointer;
     border: none;
@@ -1132,3 +1132,4 @@ section {
     width: 100%;
 
 }
+
