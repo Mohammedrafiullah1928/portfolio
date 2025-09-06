@@ -867,6 +867,7 @@ section {
 }
 
 .contact-form button {
+    height: 60px;
     align-self: flex-start;
     cursor: pointer;
     border: none;
@@ -1129,4 +1130,5 @@ section {
 
 .neon-link:hover::after {
     width: 100%;
+
 }
